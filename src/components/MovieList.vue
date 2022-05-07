@@ -38,7 +38,7 @@ export default {
       return this.$store.state.movie.message
     },
     loading() {
-      return this.$store.state.movie.message
+      return this.$store.state.movie.loading
     }
   }
 }
