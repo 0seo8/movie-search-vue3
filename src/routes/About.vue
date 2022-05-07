@@ -1,6 +1,9 @@
 <template>
   <div class="about">
     <div class="photo">
+      <Loader
+        v-if="imageLoading"
+        absolute />
       <img
         :src="image"
         :alt="name" />
@@ -15,23 +18,41 @@
 </template>
 
 <script>
+import Loader from '~/components/Loader'
 export default {
+  components: {
+    Loader
+  },
+  data() {
+    return {
+      imageLoading: true,
+    }
+  },
   computed: {
     image() {
       return this.$store.state.about.image
+    },
+    name() {
+      return this.$store.state.about.name
+    },
+    email() {
+      return this.$store.state.about.email
+    },
+    blog() {
+      return this.$store.state.about.blog
+    },
+    phone() {
+      return this.$store.state.about.phone
     }
   },
-  name() {
-      return this.$store.state.about.name
+  mounted() {
+    this.init()
   },
-  email() {
-      return this.$store.state.about.email
-  },
-  blog() {
-      return this.$store.state.about.blog
-  },
-  phone() {
-      return this.$store.state.about.phone
+  methods: {
+   async init() {
+      await this.$loadImage(this.image)
+      this.imageLoading = false
+    }
   }
 }
 </script>
@@ -41,7 +62,7 @@ export default {
   .about {
     text-align: center;
     .photo {
-      width: 25px;
+      width: 250px;
       height: 250px;
       margin: 40px auto 20px;
       padding: 30px;
@@ -49,8 +70,10 @@ export default {
       border-radius: 50%;
       box-sizing: border-box;
       background-color: $gray-200;
+      position: relative;
       img {
         width: 100%;
+        border-radius: 50%;
       }
     }
     .name {
