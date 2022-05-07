@@ -1,5 +1,4 @@
 <template>
-  About!
   <div class="about">
     <div class="photo">
       <img
