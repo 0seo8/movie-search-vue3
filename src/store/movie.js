@@ -54,7 +54,6 @@ export default {
             })
           }
         }
-  
       }catch(message){
         commit('updateState', {
           movies: [], //초기화
