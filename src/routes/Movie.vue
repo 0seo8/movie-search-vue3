@@ -22,7 +22,7 @@
       v-else
       class="movie-details">
       <div 
-        :style="{backgroundImage: `url(${theMovie.Poster})`}"
+        :style="{backgroundImage: `url(${requestDiffSizeImage(theMovie.Poster)})`}"
         class="poster"></div>
       <div class="specs">
         <div class="title">
@@ -93,6 +93,11 @@ export default {
       id: this.$route.params.id //id의 주소부분을 id값으로 가지고 와 활용하겠다 선언
     })
   },
+  methods : {
+    requestDiffSizeImage(url, size=700) {
+      return url.replace('SX300', `SX${size}`)
+    }
+  }
 }
 </script>
 
