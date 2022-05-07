@@ -121,45 +121,44 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/scss/main";
-
-  .container {
-    padding-top: 40px;
+.container {
+  padding-top: 40px;
+}
+.skeletons {
+  display: flex;
+  .poster {
+    flex-shrink: 0;
+    width: 500px;
+    height: 500px * 3/2;
+    margin-right: 70px;
   }
-  .skeletons {
-    display: flex;
-    .poster{
-      flex-shrink: 0;
-      width: 500px;
-      height: 500px * 3 / 2;
-      margin-right: 70px;
+  .specs {
+    flex-grow: 1;
+  }
+  .skeleton {
+    border-radius: 10px;
+    background-color: $gray-200;
+    &.title {
+      width: 80%;
+      height: 70px;
     }
-    .specs {
-      flex-grow: 1;
+    &.spec {
+      width: 60%;
+      height: 30px;
+      margin-top: 20px;
     }
-    .skeleton {
-      border-radius: 10px;
-      background-color: $gray-200;
-      &.title {
-        width: 80%;
-        height: 70px;
-      }
-      &.spec {
-        width: 60%;
-        height: 30px;
-        margin-top: 20px;
-      }
-      &.plot {
-        width: 100%;
-        height: 250px;
-        margin-top: 20px;
-      }
-      &.etc {
-        width: 50%;
-        height: 50px;
-        margin-top: 20px;
-      }
+    &.plot {
+      width: 100%;
+      height: 250px;
+      margin-top: 20px;
+    }
+    &.etc {
+      width: 50%;
+      height: 50px;
+      margin-top: 20px;
     }
   }
+}
 .movie-details {
   display: flex;
   color: $gray-600;
@@ -173,7 +172,6 @@ export default {
     background-position: center;
     position: relative;
     flex-shrink: 0;
-    position: relative;
   }
   .specs {
     flex-grow: 1;
@@ -221,5 +219,33 @@ export default {
       font-size: 20px;
     }
   }
+  @include media-breakpoint-down(xl) {
+    .poster {
+      width: 300px;
+      height: 300px * 3/2;
+      margin-right: 40px;
+    }
+  }
+  @include media-breakpoint-down(lg) {
+    display: block;
+    .poster {
+      margin-bottom: 40px;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    .specs {
+      .title {
+        font-size: 50px;
+      }
+      .ratings {
+        .rating-wrap {
+          display: block;
+          .rating {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
 }
-  </style>
+</style>
