@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "dev:webpack": "webpack-dev-server --mode development",
-    "dev:netlify": "netlify dev",
+    "dev": "netlify dev",
     "build": "webpack --mode production",
     "lint": "eslint --fix --ext .js,.vue"
   },
