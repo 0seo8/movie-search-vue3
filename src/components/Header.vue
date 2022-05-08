@@ -19,7 +19,7 @@
       class="user"
       @click="toAbout">
       <img
-        :src="image"
+        src="~assets/0seo.png"
         :alt="name" />
     </div>
   </header>
@@ -54,7 +54,6 @@ export default {
   },
   computed: {
     ...mapState('about', [
-      'image',
       'name'
     ])
   },
