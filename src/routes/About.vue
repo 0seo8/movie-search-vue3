@@ -5,7 +5,7 @@
         v-if="imageLoading"
         absolute />
       <img
-        :src="image"
+        src="~assets/0seo.png"
         :alt="name" />
     </div>
     <div class="name">
