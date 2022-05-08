@@ -77,6 +77,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import Loader from '~/components/Loader'
 
 export default {
@@ -89,16 +90,14 @@ export default {
     }
   },
   computed: {
-    theMovie() {
-      return this.$store.state.movie.theMovie
-    },
-    loading() {
-      return this.$store.state.movie.loading
-    }
+    ...mapState('movie',[
+      'theMovie',
+      'loading'
+    ])
   },
   created() {
     console.log(this.$route)
-    this.$store.dispatch('movie/searchMovieWithId', {
+    this.$store.dispatch('movie/searchMovieWithId',{
       id: this.$route.params.id //id의 주소부분을 id값으로 가지고 와 활용하겠다 선언
     })
   },
